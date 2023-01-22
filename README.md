@@ -8,11 +8,7 @@ This [document](https://docs.google.com/document/d/1cQ3pbKZm_yUtcLK9ZIXyPzVbTJkv
 
 ## Building
 
-**For Steam Deck users:** Instructions are available [here](STEAMOS.md).
-
 Use `make` to build gcadapter_oc.ko and `sudo insmod gcadapter_oc.ko` to load the module into the running kernel.
-
-[![asciicast](https://asciinema.org/a/455371.svg)](https://asciinema.org/a/455371)
 
 If you want to unload the module (revert the increased polling rate) use `sudo rmmod gcadapter_oc.ko`. You can also use `make clean` to clean up any files created by `make`.
 
@@ -22,13 +18,14 @@ GNU Make can't handle spaces in filenames so move the directory to a path withou
 
 ## Installing
 
+Open your command prompt and enter you git directory. Now run `git clone https://github.com/Vaasgeet/gcadapter-oc-kmod` and `cd gcadapter-oc-kmod/`.
+
+Running `chmod u+x ubuntuinstaller.sh` and `sudo ./ubuntuinstaller.sh` should do the job. The module will be loaded on boot and set to 1000 Hz mode.
+You might need to execute `sudo ./ubuntuinstaller.sh` each time you upgrade your kernel.
+
 A PKGBUILD is available for Arch Linux in `packaging/`. This package uses DKMS to install and auto-update the module when the kernel is updated. A configuration file is added to load the module automatically on boot.
 
-Prepackaged versions can be found under "Releases".
-
-For Ubuntu and Pop!OS running `chmod u+x ubuntuinstaller.sh` and `sudo ./ubuntuinstaller.sh`should do the job. The module will be loaded on boot and set to 1000 Hz mode.
-
-For other distros copying the module to an appropriate directory under `/usr/lib/modules`, running `sudo depmod` and creating a file called `/usr/lib/modules-load.d/gcadapter-oc.conf` with the contents `gcadapter_oc` should be enough to load the module automatically. You'll need to rebuild the module and copy every time you upgrade your kernel so I don't recommend it!
+Prepackaged versions can be found under https://github.com/hannesmann/gcadapter-oc-kmod/releases.
 
 ## Changing the polling rate
 
