@@ -18,7 +18,7 @@ GNU Make can't handle spaces in filenames so move the directory to a path withou
 
 ## Installing
 
-Open your command prompt and enter you git directory. Now run `git clone https://github.com/Vaasgeet/gcadapter-oc-kmod` and `cd gcadapter-oc-kmod/`.
+Open your command prompt and enter your git directory. Now run `git clone https://github.com/Vaasgeet/gcadapter-oc-kmod` and `cd gcadapter-oc-kmod/`.
 
 Running `chmod u+x ubuntuinstaller.sh` and `sudo ./ubuntuinstaller.sh` should do the job. The module will be loaded on boot and set to 1000 Hz mode.
 You might need to execute `sudo ./ubuntuinstaller.sh` each time you upgrade your kernel.
