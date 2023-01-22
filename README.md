@@ -26,6 +26,8 @@ A PKGBUILD is available for Arch Linux in `packaging/`. This package uses DKMS t
 
 Prepackaged versions can be found under "Releases".
 
+For Ubuntu and Pop!OS running `chmod u+x ubuntuinstaller.sh` and `sudo ./ubuntuinstaller.sh`should do the job. The module will be loaded on boot and set to 1000 Hz mode.
+
 For other distros copying the module to an appropriate directory under `/usr/lib/modules`, running `sudo depmod` and creating a file called `/usr/lib/modules-load.d/gcadapter-oc.conf` with the contents `gcadapter_oc` should be enough to load the module automatically. You'll need to rebuild the module and copy every time you upgrade your kernel so I don't recommend it!
 
 ## Changing the polling rate
