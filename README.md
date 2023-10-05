@@ -2,15 +2,17 @@
 
 Kernel module for overclocking the Nintendo Wii U/Mayflash GameCube adapter.
 
+This fork specifically aims to improve the Ubuntu and PopOS user experience. The script is only maintained and tested for these distributions.
+
 The default overclock is from 125 Hz to 1000 Hz. Official adapters should be able to handle this but if you experience stutter or dropped inputs you can try lowering the rate to 500 Hz.
 
 This [document](https://docs.google.com/document/d/1cQ3pbKZm_yUtcLK9ZIXyPzVbTJkvnfxKIyvuFMwzWe0/edit) by [SSBM_Arte](https://twitter.com/SSBM_Arte) has more detailed information regarding controller overclocking.
 
 ## Building
 
-Use `make` to build gcadapter_oc.ko and `sudo insmod gcadapter_oc.ko` to load the module into the running kernel.
+Use `make` to build gcadapter_oc.ko and `sudo insmod gcadapter_oc.ko rate=1` to load the module into the running kernel.
 
-If you want to unload the module (revert the increased polling rate) use `sudo rmmod gcadapter_oc.ko`. You can also use `make clean` to clean up any files created by `make`.
+If you want to unload the module (revert the increased polling rate) use `sudo rmmod gcadapter_oc.ko`. You can also use `make clean` to clean up any files created by `make all`.
 
 If you get an error saying "building multiple external modules is not supported" it's because you have a space somewhere in the path to the gcadapter-oc-kmod directory.
 
@@ -18,14 +20,11 @@ GNU Make can't handle spaces in filenames so move the directory to a path withou
 
 ## Installing
 
-Open your command prompt and enter your git directory. Now run `git clone https://github.com/Vaasgeet/gcadapter-oc-kmod` and `cd gcadapter-oc-kmod/`.
+Open your command prompt and enter your git directory. Now run `git clone https://github.com/Vaasgeet/gcadapter-oc-kmod` and enter the directory by `cd gcadapter-oc-kmod/`.
 
-Running `chmod u+x ubuntuinstaller.sh` and `sudo ./ubuntuinstaller.sh` should do the job. The module will be loaded on boot and set to 1000 Hz mode.
-You might need to execute `sudo ./ubuntuinstaller.sh` each time you upgrade your kernel.
+Running `chmod u+x ubuntuinstaller.sh & sudo ./ubuntuinstaller.sh` should do the job. The module will be loaded on system start and set to 1000 Hz mode by default.
 
-A PKGBUILD is available for Arch Linux in `packaging/`. This package uses DKMS to install and auto-update the module when the kernel is updated. A configuration file is added to load the module automatically on boot.
-
-Prepackaged versions can be found under https://github.com/hannesmann/gcadapter-oc-kmod/releases.
+You might need to execute `sudo ./ubuntuinstaller.sh` each time you update your Linux kernel.
 
 ## Changing the polling rate
 
