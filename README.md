@@ -24,7 +24,7 @@ Open your command prompt and enter your git directory. Now run `git clone https:
 
 Running `chmod u+x ubuntuinstaller.sh & sudo ./ubuntuinstaller.sh` should do the job. The module will be loaded on system start and set to 1000 Hz mode by default.
 
-You might need to execute `sudo ./ubuntuinstaller.sh` each time you update your Linux kernel.
+You will need to execute `./ubuntuinstaller.sh` each time you update your Linux kernel.
 
 ## Changing the polling rate
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+[ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 make clean
 make all
 if [ -e gcadapter_oc.ko ];then
